@@ -8,40 +8,127 @@
     <title>Graphic Designing</title>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
-<div id="graphicdesignertitle">
-    <nav> 
-        <div class="home">
-            <a href="Index.html"> <img class="blackhome" src="HOME HOVER.png" alt="Logo"  style="margin: 15px 120px; cursor: pointer;"></a>    
-        <a href="Index.html"> <img src="HOME.png" alt="Logo"  style="margin: 15px 120px; cursor: pointer;"></a>
-    </div> 
-       </nav>
-       <div class="container">
-        
-        <div class="titleimg">
-            <img src="GRAPHIC PNG.png" alt="">
-        </div>
-        <div class="backgroundbox">
-       <div class="titletext"data-aos="fade-in">
-        <h1> What Is Graphic <span>Desinging?</span></h1>
-        <p>In addition to improving the appearance of something, graphic design can assist communicate a message more effectively by organizing the information. When the ideal picture, an intelligent headline, and expert execution come together in a reputable package, BOOM! The target of the message has reached.</p>
-    </div>
-    
-</div>
-</div>
-<!-------------SecondPhase-------------------->
-<div id="phase2">
-    <div class="container2">
-        <div class="title2">
-            <h2>Designs created  <span>Created</span> by me</h2>
-            
-        </div>
-    </div>
-</div>
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script>
-  AOS.init();
-</script>
+
 <body>
+    <div id="graphicdesignertitle">
+        <nav> 
+            <div class="home">
+                <a href="Index.html"> <img class="blackhome" src="HOME HOVER.png" alt="Logo"  style="margin: 15px 120px; cursor: pointer;"></a>    
+            <a href="Index.html"> <img src="HOME.png" alt="Logo"  style="margin: 15px 120px; cursor: pointer;"></a>
+        </div> 
+           </nav>
+           <div class="container">
+            
+            <div class="titleimg">
+                <img src="GRAPHIC PNG.png" alt="">
+            </div>
+            <div class="backgroundbox">
+           <div class="titletext"data-aos="fade-in">
+            <h1> What Is Graphic <span>Desinging?</span></h1>
+            <p>In addition to improving the appearance of something, graphic design can assist communicate a message more effectively by organizing the information. When the ideal picture, an intelligent headline, and expert execution come together in a reputable package, BOOM! The target of the message has reached.</p>
+        </div>
+        
+    </div>
+    </div>
+    <!-------------SecondPhase-------------------->
+    <div id="phase2">
+        <div class="container2">
+            <div class="title2">
+                <h2>Designs created  <span>Created</span> by me</h2>
+                </div>
+                <div class="gallery">
+                    <!-- Repeat this card section for each service -->
+                    <div class="card" onclick="showModal(0)">
+                        <div class="cardimg">
+                        <img src="GRAPHICDESIGNS.jpg" alt="Service 1"></div>
+                        <h3>Business Cards</h3>
+                    </div>
+            
+                    <div class="card" onclick="showModal(1)">
+                        <div class="cardimg">
+                        <img src="FLYERS.jpg" alt="Service 2"></div>
+                        <h3>Flyers</h3>
+                    </div>
+
+                    
+                    <div class="card" onclick="showModal(1)">
+                        <div class="cardimg">
+                        <img src="FLYERS.jpg" alt="Service 2"></div>
+                        <h3>Service 2</h3>
+                    </div>
+            
+                    <!-- Add more cards as needed -->
+                </div>
+            
+                <!-- Modal (lightbox) -->
+                <div class="modal" id="myModal">
+                    <div class="modal-content">
+                        <span class="close-button" onclick="closeModal()">&times;</span>
+                        <img id="modal-image" src="" alt="Service Image">
+                        <div class="modal-controls">
+                            <button onclick="prevImage()">&#10094;</button>
+                            <button onclick="nextImage()">&#10095;</button>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Modal (lightbox) -->
+                <div class="modal" id="myModal">
+                    <div class="modal-content">
+                        <img id="modal-image" src="" alt="Service Image">
+                        <div class="modal-controls">
+                            <button onclick="prevImage()">&#10094;</button>
+                            <button onclick="nextImage()">&#10095;</button>
+                        </div>
+                    </div>
+                </div>
+    </div>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+
+
+<script>
+    // JavaScript functions to handle modal display and image navigation
+    let currentImageIndex = 0;
+    const images = ['GRAPHICDESIGNS.jpg', 'FLYERS.jpg', 'FLYERS.jpg']; // Add image file names for your services here
+
+    function showModal(index) {
+        currentImageIndex = index;
+        const modal = document.getElementById('myModal');
+        const modalImage = document.getElementById('modal-image');
+        
+        modal.style.display = 'flex';
+        modalImage.src = images[currentImageIndex];
+    }
+
+    function closeModal() {
+        const modal = document.getElementById('myModal');
+        modal.style.display = 'none';
+    }
+
+    function prevImage() {
+        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+        const modalImage = document.getElementById('modal-image');
+        modalImage.src = images[currentImageIndex];
+    }
+
+    function nextImage() {
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        const modalImage = document.getElementById('modal-image');
+        modalImage.src = images[currentImageIndex];
+    }
+
+    // Close modal when clicking outside of the image
+    const modal = document.getElementById('myModal');
+    modal.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
+</script>
+    
     
     
 </body>
